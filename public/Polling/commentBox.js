@@ -23,13 +23,7 @@ var CommentBox = React.createClass({
       <div className="commentBox">
         <h1>Comments</h1>
         <CommentList data={this.state.data} />
-        <CommentForm />
       </div>
     );
   }
 });
-
-React.render(
-  <CommentBox url="comments.json" pollInterval={2000} />,
-  document.getElementById('content')
-);

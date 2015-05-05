@@ -1,4 +1,3 @@
-// tutorial3.js
 var CommentBox = React.createClass({
   render: function() {
     return (
@@ -10,9 +9,3 @@ var CommentBox = React.createClass({
     );
   }
 });
-
-React.render(
-  <CommentBox />,
-  //document.getElementById('content')
-  $('#content')[0]
-);

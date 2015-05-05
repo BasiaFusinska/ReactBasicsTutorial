@@ -8,9 +8,3 @@ var CommentList = React.createClass({
     );
   }
 });
-
-React.render(
-  <CommentList />,
-  //document.getElementById('content')
-  $('#content')[0]
-);
