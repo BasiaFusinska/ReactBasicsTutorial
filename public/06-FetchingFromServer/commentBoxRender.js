@@ -1,4 +1,4 @@
 React.render(
-  <CommentBox url="comments.json" />,
+  <CommentBox url="/comments.json" />,
   document.getElementById('content')
 );

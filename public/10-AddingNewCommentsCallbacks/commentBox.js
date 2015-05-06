@@ -3,6 +3,7 @@ var CommentBox = React.createClass({
     $.ajax({
       url: this.props.url,
       dataType: 'json',
+      cache: false,
       success: function(data) {
         this.setState({data: data});
       }.bind(this),
@@ -12,27 +13,14 @@ var CommentBox = React.createClass({
     });
   },
   handleCommentSubmit: function(comment) {
-    console.log('comment: ' + comment.author + ', ' + comment.text);
-
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      type: 'POST',
-      data: comment,
-      success: function(data) {
-        this.setState({data: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
+    // TODO: submit to the server and refresh the list
   },
   getInitialState: function() {
     return {data: []};
   },
   componentDidMount: function() {
     this.loadCommentsFromServer();
-    //setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
   },
   render: function() {
     return (
@@ -44,8 +32,3 @@ var CommentBox = React.createClass({
     );
   }
 });
-
-React.render(
-  <CommentBox url="comments.json" />,
-  document.getElementById('content')
-);
